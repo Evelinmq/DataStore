@@ -1,4 +1,6 @@
-package mx.edu.utez.datastore.ui.components.textsimport androidx.compose.foundation.layout.fillMaxWidth
+package mx.edu.utez.datastore.ui.components.textsimport
+
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable

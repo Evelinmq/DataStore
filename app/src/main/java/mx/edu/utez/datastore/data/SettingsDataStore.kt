@@ -6,12 +6,12 @@ import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-// Extensión del DataStore
+
 private val Context.dataStore by preferencesDataStore(name = "settings_preferences")
 
 class SettingsDataStore(private val context: Context) {
 
-    // Claves de preferencia
+
     companion object {
         val DARK_MODE_KEY = booleanPreferencesKey("dark_mode")
         val BRIGHTNESS_KEY = floatPreferencesKey("brightness")
@@ -19,7 +19,7 @@ class SettingsDataStore(private val context: Context) {
         val DIFFICULTY_KEY = stringPreferencesKey("difficulty")
     }
 
-    // Flujos (Flow) que emiten los valores almacenados
+
     val isDarkMode: Flow<Boolean> = context.dataStore.data.map { prefs ->
         prefs[DARK_MODE_KEY] ?: false
     }
@@ -36,7 +36,7 @@ class SettingsDataStore(private val context: Context) {
         prefs[DIFFICULTY_KEY] ?: "Normal"
     }
 
-    // Métodos para guardar datos
+
     suspend fun setDarkMode(value: Boolean) {
         context.dataStore.edit { prefs ->
             prefs[DARK_MODE_KEY] = value
